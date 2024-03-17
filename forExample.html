@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forExample.css">
+    <title>Document</title>
+    <script>
+        function thayDoiAnh()
+        {
+            document.getElementById('anh1').src = '1200x0.jpg';
+        }
+        function layLaiAnh()
+        {
+            //document.getElementById('anh1').style.display = "inline";
+            document.getElementById('anh1').src = '2Thlz.jpg';
+        }
+    </script>
+</head>
+<body>
+
+    <div class="img1" onmouseover="thayDoiAnh()" onmouseout="layLaiAnh()">
+         <img id="anh1" src="2Thlz.jpg" alt="">
+    </div>
+</body>
+</html>
