@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var Quanity = 0;
+       function show()
+       {
+          console.log('Cart Quantity: ' + Quanity);
+       }
+       function add()
+       {
+          Quanity +=1;
+          console.log('Cart Quantity: ' + Quanity);
+       }
+       function flus2()
+       {
+         Quanity +=2;
+         console.log('Cart Quantity: ' + Quanity);
+       }
+       function flus3()
+       {
+         Quanity +=3;
+         console.log('Cart Quantity: ' + Quanity);
+       }
+       function reset()
+       {
+         Quanity = 0;
+         console.log('Cart Quantity: ' + Quanity);
+       }
+    </script>
+
+    <p>Cart Quantity </p>
+    <button onclick="show()">Show Quanity</button>
+    <button onclick="add()">Add to Cart</button>
+    <button onclick="flus2()">+2</button>
+    <button onclick="flus3()">+3</button>
+    <button onclick="Quanity+=4;console.log('Cart Quantity: ' + Quanity)">+4</button>
+    <button onclick="Quanity+=5;console.log('Cart Quantity: ' + Quanity)">+5</button>
+    <button onclick="Quanity-=1;console.log('Cart Quantity: ' + Quanity)">Remove From Cart</button>
+    <button onclick="reset()">Reset</button>
+</body>
+</html>
