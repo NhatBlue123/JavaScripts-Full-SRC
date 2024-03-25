@@ -26,45 +26,47 @@
 
       function playGame(playerMove) {
         const moveComputer = pickComputerMove();
+        let result = '';
         //rock
         if (playerMove === 'rock') {
           if (moveComputer === 'Rock') {
-            alert("Computer Gets Rock, You Get Rock: You Get Tie");
+            result = 'tie.';
             draw += 1;
           } else if (moveComputer === 'Paper') {
-            alert("Computer Gets Paper, You Get Rock: You Get Lost");
+            result = 'lost';
             lost += 1;
           } else {
-            alert("Computer Gets Scissors, You Get Rock: You Get Win");
+            result = 'win';
             win += 1;
           }
         }
         //scissors
         else if (playerMove === 'paper') {
           if (moveComputer === 'Rock') {
-            alert("Computer Gets Rock, You Get Paper: You Get Win");
+            result = 'win.';
             win += 1;
           } else if (moveComputer === 'Paper') {
-            alert("Computer Gets Paper, You Get Paper: You Get Tie");
+            result = 'tie.';
             draw += 1;
           } else {
-            alert("Computer Gets Scissors, You Get Paper: You Get Lost");
+            result = 'lost.';
             lost += 1;
           }
         }
         //scissors
         else {
           if (moveComputer === 'Rock') {
-            alert("Computer Gets Rock, You Get Scissors: You Get Lost");
+            result = 'lost.';
             lost += 1;
           } else if (moveComputer === 'Paper') {
-            alert("Computer Gets Paper, You Get Scissors: You Get Win");
+            result = 'win.'
             win += 1;
           } else {
-            alert("Computer Gets Scissors, You Get Scissors: You Get Tie");
+            result = 'draw.';
             draw += 1;
           }
         }
+        alert(`Computer Gets ${moveComputer}, You Get ${playerMove}: You Get ${result}`);
         document.getElementById('win').innerHTML = 'Win: ' + win;
         document.getElementById('lost').innerHTML = 'Lost: ' + lost;
         document.getElementById('draw').innerHTML = 'Draw:' + draw;
