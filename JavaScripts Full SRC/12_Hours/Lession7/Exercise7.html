@@ -44,6 +44,42 @@
             return result;
         }
         console.log(convertToTemperature(86,'F'));
+        
+        let calculation = '';
+        let tmp = 0;
+        let tmp1 = 0;
+     
+        function clickEqual()
+        {
+            calculation = eval(calculation);
+            console.log(calculation);
+        }
+        function updateCalculation(value)
+        {
+           calculation += value;
+           console.log(calculation);
+        }
+        
     </script>
+    <p>
+        <button onclick="updateCalculation('1')">1</button>
+        <button onclick="updateCalculation('2')">2</button>
+        <button onclick="updateCalculation('3')">3</button>
+        </p>
+        <p>
+            <button onclick="updateCalculation('4')">4</button>
+            <button onclick="updateCalculation('5')">5</button>
+            <button onclick="updateCalculation('6')">6</button>
+        </p>
+        <p>
+            <button onclick="updateCalculation('7')">7</button>
+            <button onclick="updateCalculation('8')">8</button>
+            <button onclick="updateCalculation('9')">9</button>
+        </p>
+        <button onclick="updateCalculation('+')">+</button>
+        <button onclick="updateCalculation('-')">-</button>
+        <button onclick="updateCalculation('*')">*</button>
+        <button onclick="updateCalculation('/')">/</button>
+        <button onclick="clickEqual()">=</button>
 </body>
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //8a
+      const product1 = {
+        name: 'basketball',
+        price: 2095, //cent
+        //8c
+        'delivery-time': '3 days'
+      }
+      console.log(product1);
+      //8b
+      product1.price = 500; //cent
+      console.log(product1);
+      //8d
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) {
+          console.log(product1);
+        } else {
+          console.log(product2);
+        }
+      }
+      const product2 = {
+        name: 'Iphone 15 Pro Max',
+        price: 500000, //cent
+        'delivery-time': '1 days'
+      }
+      const product3 = {
+        name: 'Iphone 15 Pro Max',
+        price: 500000, //cent
+        'delivery-time': '1 days'
+      }
+      comparePrice(product1, product2);
+      //8e
+      function isSameProduct(product1, product2) {
+        if (product1.price === product2.price && product1.name === product2.name) {
+          return true;
+        }
+        return false;
+      }
+      console.log(isSameProduct(product1, product2));
+      //8f
+      //alert('Good Morning'.toLowerCase());
+      //8g
+      console.log('test'.repeat(2));
+      //8h
+      let calculation = localStorage.getItem('u') || '';
+      let tmp;
+
+      function clickEqual() {
+        calculation = eval(calculation);
+        console.log(calculation);
+        localStorage.setItem('u', calculation);
+      }
+
+      function updateCalculation(value) {
+        calculation += value;
+        console.log(calculation);
+      }
+
+      function onclickC() {
+        calculation = '';
+      }
+      //8i
+      let playerGuess;
+      
+      const score = JSON.parse(localStorage.getItem('sc')) || {
+        wins: 0,
+        losses: 0
+      }
+      function playGuess(guess) {
+        const randomNumber = Math.random();
+        let result = '';
+
+        if (randomNumber < 1 / 2) {
+          result = 'heads';
+        } else {
+          result = 'tails';
+        }
+        if (guess === 'heads') {
+          playerGuess = guess;
+        } else {
+          playerGuess = guess;
+        }
+
+
+        if (playerGuess === result) {
+          score.wins +=1;
+          alert('Win');
+        } else{ alert('Loss');
+        score.losses +=1;
+      }
+      console.log(score);
+      localStorage.setItem('sc',JSON.stringify(score));
+    }
+    </script>
+    <button onclick="updateCalculation('1')">1</button>
+    <button onclick="updateCalculation('2')">2</button>
+    <button onclick="updateCalculation('3')">3</button>
+    </p>
+    <p>
+      <button onclick="updateCalculation('4')">4</button>
+      <button onclick="updateCalculation('5')">5</button>
+      <button onclick="updateCalculation('6')">6</button>
+    </p>
+    <p>
+      <button onclick="updateCalculation('7')">7</button>
+      <button onclick="updateCalculation('8')">8</button>
+      <button onclick="updateCalculation('9')">9</button>
+    </p>
+    <button onclick="updateCalculation('+')">+</button>
+    <button onclick="updateCalculation('-')">-</button>
+    <button onclick="updateCalculation('*')">*</button>
+    <button onclick="updateCalculation('/')">/</button>
+    <button onclick="clickEqual()">=</button>
+    <button onclick="onclickC()">C</button>
+    <!--8i-->
+    <div style="display: block;margin-top: 20px;">
+      <button onclick="playGuess('heads')">heads</button>
+      <button onclick="playGuess('tails')">tails</button>
+    </div>
+  </body>
+</html>
