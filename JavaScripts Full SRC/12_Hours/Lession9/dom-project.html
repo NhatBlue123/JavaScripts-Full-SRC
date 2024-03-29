@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exercise</title>
+    <style>
+        body{
+            background-image: url('img_tree-png-1.png');
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+    </style>
+</head>
+<body>
+    <!--Project1-->
+    <div style="margin-bottom: 30px;">
+        <p>Youtube Subcribe Button</p>
+        <button onclick="clickSub()" class="sub">Subcribe </button>
+    </div>
+
+    <!--Project2-->
+    <div style="margin-bottom: 30px;">
+        <p>Rock Paper Scissors</p>
+        <a href="keo-bua-bao.html" target="_blank"><u>Click here!</u></a>
+    </div>
+    
+    <!--Project3-->
+    <div>
+        <p>
+            Amazon Shipping Calculator
+        </p>
+        <p>
+            Orders under $40 = +$10 shipping.
+        </p>
+        <p>
+            Orders over $40 = FREE shipping.
+        </p>
+
+        <input class="input-cost" placeholder="Cost of older" 
+        onkeydown="console.log(event.key); if(event.key === 'Enter') calcuShipping();" type="text">
+        <button onclick="calcuShipping() ">
+            Calculate
+        </button>
+
+        <p class="result"></p>
+    </div>
+    <script>
+        //fun --Project1--
+        function clickSub()
+        {
+            if(document.querySelector('.sub').innerText === 'Subcribe')
+            document.querySelector('.sub').innerText = 'Subcribed';
+            else
+            document.querySelector('.sub').innerText = 'Subcribe';
+        }
+         
+        //fun ----Project2--
+        function calcuShipping()
+        {
+            let cost = parseInt(document.querySelector('.input-cost').value);
+            if(cost < 40)
+            {
+               cost +=10;
+            }
+            document.querySelector('.result').innerHTML = `$${cost}`;
+        }
+    </script>
+</body>
+</html>

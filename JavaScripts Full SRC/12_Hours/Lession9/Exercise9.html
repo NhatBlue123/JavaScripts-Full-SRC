@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button style="display: block;margin-bottom: 10px;">9a</button>
+    <!--9b-->
+    <button class="niceB" style="display: block;margin-bottom: 10px;">9b</button>
+    <!--9c-->
+    <button onclick="heads()" class="heads-button">heads</button>
+    <button onclick="tails()" class="tails-button">tails</button>
+    <!--9d-->
+    <p class="result"></p>
+    <div style="display: block;margin-top: 10px;margin-bottom: 10px;">
+        <input class="input-text" onkeydown="clickEnter(event)" type="text">
+        <button onclick="submid()">Submid</button>
+        <p class="YourName"></p>
+    </div>
+
+    <div>
+        <input class="input-cost" placeholder="Cost of older" 
+        onkeydown="console.log(event.key); if(event.key === 'Enter') calcuShipping();" type="text">
+        <button onclick="calcuShipping() ">
+            Calculate
+        </button>
+
+        <p class="result1"></p>
+    </div>
+
+    <div style="display: block;margin-top: 10px;margin-bottom: 30px;">
+        <input class="sorry" type="text" onkeyup="h9()">
+        <p class="rs"></p>
+    </div>
+
+    <!--9i-->
+    <div style="display: block;margin-bottom: 20px;">
+        <button onclick="niceI('show')">Show Quantity</button>
+        <button onclick="niceI('add')">Add to Cart</button>
+        <button onclick="niceI('2')">+2</button>
+        <button onclick="niceI('3')">+3</button>
+        <button onclick="niceI('4')">+4</button>
+        <button onclick="niceI('5')">+5</button>
+        <button onclick="niceI('remove')">Remove from cart</button>
+        <button onclick="niceI('-2')">-2</button>
+        <button onclick="niceI('-3')">-3</button>
+        <p class="quantity"></p>
+    </div>
+    
+    <div>
+        <p class="calcu1"></p>
+    <p>    
+    <button onclick="updateCalculation('1')">1</button>
+    <button onclick="updateCalculation('2')">2</button>
+    <button onclick="updateCalculation('3')">3</button>
+    </p>
+    <p>
+      <button onclick="updateCalculation('4')">4</button>
+      <button onclick="updateCalculation('5')">5</button>
+      <button onclick="updateCalculation('6')">6</button>
+    </p>
+    <p>
+      <button onclick="updateCalculation('7')">7</button>
+      <button onclick="updateCalculation('8')">8</button>
+      <button onclick="updateCalculation('9')">9</button>
+    </p>
+    <button onclick="updateCalculation('+')">+</button>
+    <button onclick="updateCalculation('-')">-</button>
+    <button onclick="updateCalculation('*')">*</button>
+    <button onclick="updateCalculation('/')">/</button>
+    <button onclick="clickEqual()">=</button>
+    <button onclick="onclickC()">C</button>
+    </div>
+    
+    <script>
+        let tmp = '';
+        //9a
+        console.log(document.querySelector('button'));
+        //9b
+        document.querySelector('.niceB').innerHTML = '9b done!';
+
+        function heads()
+        {
+            document.querySelector('.result').innerHTML = 'You chose: heads';
+        }
+        function tails()
+        {
+            document.querySelector('.result').innerHTML = 'You chose: tails';
+   
+        }
+        function submid()
+        {
+            document.querySelector('.YourName').innerHTML = 'Your name is: ' + document.querySelector('.input-text').value;
+        }
+        function clickEnter(event)
+        {
+            if(event.key === 'Enter')
+            {
+                submid();
+            }
+        }
+        function calcuShipping()
+        {
+            let cost = Number(document.querySelector('.input-cost').value);
+            if(cost < 40)
+            {
+               cost +=10;
+            }
+            document.querySelector('.result1').innerHTML = `$${Math.round(cost)}`;
+        }
+        function h9()
+        {
+            document.querySelector('.rs').innerHTML = document.querySelector('.sorry').value;
+        }
+        let product = {
+              quantity: 0,
+            }
+        function niceI(value)
+        {
+            if(value === 'show')
+            {
+                console.log('Cart quantity: ' + product.quantity);
+            }else if(value === 'add')
+            {
+                product.quantity += 1;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+            else if(value === '2')
+            {
+                product.quantity += 2;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+            else if(value === '3')
+            {
+                product.quantity += 3;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+            else if(value === '4')
+            {
+                product.quantity += 4;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+            else if(value === '5')
+            {
+                product.quantity += 1;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+            else if(value === 'remove')
+            {
+                product.quantity = 0;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+            else if(value === '-2')
+            {
+                product.quantity -= 2;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+            else if(value === '-3')
+            {
+                product.quantity -= 3;
+                document.querySelector('.quantity').innerHTML = 'Cart quantity: ' + product.quantity;
+            }
+        }
+        let calculation = localStorage.getItem('u') || '';
+      function clickEqual() {
+        calculation = eval(calculation);
+        document.querySelector('.calcu1').innerHTML = calculation;
+        localStorage.setItem('u', calculation);
+      }
+
+      function updateCalculation(value) {
+        calculation += value;
+        document.querySelector('.calcu1').innerHTML = calculation;
+      }
+
+      function onclickC() {
+        calculation = '';
+        localStorage.setItem('u', calculation);
+      }
+    </script>
+    <!--9a-->
+</body>
+</html>
