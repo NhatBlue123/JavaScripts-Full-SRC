@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exercise</title>
+    <style>
+
+        body{
+            background-image: url('img_tree-png-1.png');
+            background-repeat: no-repeat;
+            background-position: right;
+            font-family: Arial;
+        }
+        .sub{
+            border: none;
+            background-color: black;
+            color: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .is-subcribed
+        {
+            background-color: rgb(240, 240, 240);
+            color: #000;
+        }
+        .input-cost{
+            font-size: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .calcutale-button{
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 12px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!--Project1-->
+    <div style="margin-bottom: 30px;">
+        <p>Youtube Subcribe Button</p>
+        <button onclick="clickSub()" class="sub">Subcribe </button>
+    </div>
+
+    <!--Project2-->
+    <div style="margin-bottom: 30px;">
+        <p>Rock Paper Scissors</p>
+        <a href="keo-bua-bao.html" target="_blank"><u>Click here!</u></a>
+    </div>
+    
+    <!--Project3-->
+    <div>
+        <p>
+            Amazon Shipping Calculator
+        </p>
+        <p>
+            Orders under $40 = +$10 shipping.
+        </p>
+        <p>
+            Orders over $40 = FREE shipping.
+        </p>
+
+        <input class="input-cost" placeholder="Cost of older" 
+        onkeydown="console.log(event.key); if(event.key === 'Enter') calcuShipping();" type="text">
+        <button class="calcutale-button" onclick="calcuShipping();">
+            Calculate
+        </button>
+
+        <p class="result"></p>
+    </div>
+    <script>
+        //fun --Project1--
+        function clickSub()
+        {
+            const buttonElement = document.querySelector('.sub');
+            if(buttonElement.innerText === 'Subcribe')
+            {
+              buttonElement.innerText = 'Subcribed';
+              buttonElement.classList.add('is-subcribed');
+            }
+            else
+            {
+              buttonElement.innerText = 'Subcribe';
+              buttonElement.classList.remove('is-subcribed');
+        }
+    }
+         
+        //fun ----Project2--
+        function calcuShipping()
+        {
+            let cost = parseInt(document.querySelector('.input-cost').value);
+            if(cost < 40)
+            {
+               cost +=10;
+            }
+            document.querySelector('.result').innerHTML = `$${cost}`;
+        }
+    </script>
+</body>
+</html>
