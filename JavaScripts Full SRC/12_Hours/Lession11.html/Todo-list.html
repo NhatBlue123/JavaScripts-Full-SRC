@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Todo List Practic 1</p>
+    <input onkeydown="pressEnter(event.key)" class="input-todo" type="text" placeholder="Todo name">
+    <button onclick="clickAdd()">Add</button>
+    <div class="list-todo">
+
+    </div>
+    <script>
+        const toDoList = [];
+       function clickAdd()
+       {
+       
+        toDoList.push(document.querySelector('.input-todo').value);
+        document.querySelector('.input-todo').value = '';
+        update();
+    }        
+       function update()
+       {
+        let todoListHTML = '';
+        for(let i = 0 ; i < toDoList.length; i++)
+        {
+           const todo = toDoList[i];
+           let html = `<p>${todo}</p>`;
+           todoListHTML += html;
+        }
+        document.querySelector('.list-todo').innerHTML = todoListHTML;
+       }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myArayy = [1,2,3,4,5];
+        console.log(myArayy);
+        console.log(myArayy[1]);
+
+        myArayy.push(123);//=> 1 2 3 4 5 123
+        console.log(myArayy);
+
+        //myArayy.splice(0,2);// => 3 4 5 5 123
+        myArayy.splice(1,0,7); //= > 1 7 2 3 4 5 123
+        console.log(myArayy);
+    </script>
+</body>
+</html>

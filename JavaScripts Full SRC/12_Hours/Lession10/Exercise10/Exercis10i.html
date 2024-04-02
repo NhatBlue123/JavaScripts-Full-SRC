@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        color: white;
+        background-color: black;
+        font-family: Arial;
+    }
+    button{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 5px;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    }
+    .calcu1{
+        font-size: 30px;
+    }
+    .header{
+        height: 50px;
+    }
+    .color-dau{
+        background-color: rgb(254, 160, 10);
+    }
+</style>
+<body>
+    <div class="header">
+        <p class="calcu1"></p>
+    </div>
+    <p>    
+    <button onclick="updateCalculation('1')">1</button>
+    <button onclick="updateCalculation('2')">2</button>
+    <button onclick="updateCalculation('3')">3</button>
+    <button class="color-dau" onclick="updateCalculation(' + ')">+</button>
+    </p>
+    <p>
+      <button onclick="updateCalculation('4')">4</button>
+      <button onclick="updateCalculation('5')">5</button>
+      <button onclick="updateCalculation('6')">6</button>
+      <button class="color-dau" onclick="updateCalculation(' - ')">-</button>
+    </p>
+    <p>
+      <button onclick="updateCalculation('7')">7</button>
+      <button onclick="updateCalculation('8')">8</button>
+      <button onclick="updateCalculation('9')">9</button>
+      <button class="color-dau" onclick="updateCalculation(' * ')">*</button>
+    </p>
+    <p>
+      <button onclick="updateCalculation('0')">0</button>
+      <button onclick="updateCalculation('.')">.</button>
+      <button onclick="clickEqual()">=</button>
+      <button class="color-dau" onclick="updateCalculation(' / ')">/</button>
+    </p>
+    <button style="font-size: 15px;" onclick="onclickC()">Clear</button>
+    <script>
+        let calculation = localStorage.getItem('u') || '';
+      function clickEqual() {
+        calculation = eval(calculation);
+        document.querySelector('.calcu1').innerHTML = calculation;
+        localStorage.setItem('u', calculation);
+      }
+
+      function updateCalculation(value) {
+        calculation += value;
+        document.querySelector('.calcu1').innerHTML = calculation;
+      }
+
+      function onclickC() {
+        calculation = '';
+        localStorage.setItem('u', calculation);
+        document.querySelector('.calcu1').innerHTML = calculation;
+      }
+    </script>
+</body>
+</html>
