@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //11a
+        const sums = [10,20,30];
+        const happiness = ['hi','hello', 'good'];
+        sums[2] = 99;
+        console.log(sums);
+        //11b
+        function getLastValue(array)
+        {
+            return array[array.length-1];
+        }
+        console.log(getLastValue(happiness));
+         
+        //11c 
+        function arraySwap(array)
+        {
+            for(let i = array.length-1 ; i >= 0 ; i--)
+            {
+                console.log(array[i]);
+            }
+        }
+        arraySwap(happiness);
+
+        //11d
+        for(let i = 0 ; i <= 10 ;i=i+2)
+        {
+            console.log(i);
+        }
+
+        //11e
+        for(let i = 5 ; i >= 0 ; i--)
+        {
+            console.log(i);
+        }
+         
+        //11g
+        const newArray = [];
+        const array1 = [1,2,3];
+        for(let i = 0 ; i < array1.length ; i++)
+        {
+            newArray.push(array1[i]+1);
+        }
+        console.log(newArray);
+
+        //11
+        function addOne(array)
+        {
+            for(let i = 0 ; i < array.length ; i++)
+            {
+                console.log(array[i] + 1);
+            }
+        }
+        addOne(array1);
+
+        for(let i = 0 ; i < array1.length ; i++)
+        {
+            console.log(array1[i]);
+        }
+        for(let i = 0 ; i < array1.length ; i++)
+        {
+            console.log(array1[i]);
+        }
+    </script>
+</body>
+</html>
