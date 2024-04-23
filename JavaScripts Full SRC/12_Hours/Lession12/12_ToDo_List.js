@@ -9,6 +9,9 @@ const toDoList = [
   },
 ];
 update();
+document.querySelector(".js-add-button").addEventListener("click", () => {
+  clickAdd();
+});
 function clickAdd() {
   const inputTODO = document.querySelector(".input-todo").value;
   const inputDATE = document.querySelector(".input-date").value;
@@ -26,12 +29,12 @@ function clickAdd() {
 }
 function update() {
   let todoListHTML = "";
-  toDoList.forEach(function (todo, index) {
+  toDoList.forEach((todo, index) => {
     const name = todo.name;
     const date = todo.dueDate;
     let html = `<div>${name}</div> 
                     <div>${date}</div> 
-                    <button class="delete-button" onclick="toDoList.splice(${index},${1});
+                    <button class="delete-button js-delete-button" onclick="toDoList.splice(${index},${1});
                     update()">Delete</button>`;
     todoListHTML += html;
   });
