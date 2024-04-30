@@ -1,6 +1,6 @@
 //saves product
 import { cart } from "../data/cart.js";
-
+import { products } from "../data/products.js";
 let productHTML = "";
 products.forEach((product) => {
   productHTML += `
