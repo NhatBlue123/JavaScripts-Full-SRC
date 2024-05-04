@@ -16,6 +16,8 @@ function saveToStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+let count = 0;
+
 export function addToCart(productId) {
   let matchingItem;
   cart.forEach((item) => {
@@ -33,7 +35,6 @@ export function addToCart(productId) {
   }
   saveToStorage();
 }
-
 export function removeFromCart(productId) {
   const newArray = [];
 

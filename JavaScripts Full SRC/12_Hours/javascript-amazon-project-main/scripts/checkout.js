@@ -1,7 +1,7 @@
-import { cart, removeFromCart } from "../data/cart.js";
+import { cart, removeFromCart} from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
-
+let countItem = 0;
 let cartSumaryHTML = "";
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
@@ -11,8 +11,11 @@ cart.forEach((cartItem) => {
   products.forEach((product) => {
     if (product.id === productId) {
       matchingProduct = product;
+      countItem++;
     }
   });
+  document.querySelector('.js-count-item').innerHTML = `${countItem} items`
+
   cartSumaryHTML += `<div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
@@ -102,3 +105,4 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
     container.remove();
   });
 });
+
