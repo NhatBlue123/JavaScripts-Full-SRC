@@ -1,4 +1,7 @@
 export let cart = JSON.parse(localStorage.getItem("cart"));
+import { deliveryOptions } from "./deliveryOptions.js";
+import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+
 if (!cart) {
   cart = [
     {
@@ -60,4 +63,24 @@ export function updateDeliveryOption(productId,deliveryOptionId)
   });
   matchingItem.deliveryOptionId = deliveryOptionId;
   saveToStorage();  
+}
+export function changeDateClick(deliveryOption, productId) {
+  deliveryOptions.forEach((item) => {
+    if (deliveryOption === item.id) {
+      const today = dayjs();
+      const deliveryDate = today.add(item.deliveryDays, "days");
+      const dateString = deliveryDate.format("dddd, MMMM D");
+      document.querySelector(
+        `.optionId${productId}`
+      ).innerHTML = `Delivery date: ${dateString}`;
+      cart.forEach((cartItem)=>{
+        if(productId === cartItem.productId)
+          {
+            cartItem.deliveryOptionId = deliveryOption;
+          }
+      })
+      saveToStorage();
+
+    }
+  });
 }
