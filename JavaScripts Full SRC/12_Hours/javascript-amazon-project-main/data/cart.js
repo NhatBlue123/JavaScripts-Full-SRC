@@ -1,6 +1,8 @@
 export let cart = JSON.parse(localStorage.getItem("cart"));
 import { deliveryOptions } from "./deliveryOptions.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+import { renderPaymentSummary } from "../scripts/checkout/paymentSummary.js";
+
 
 if (!cart) {
   cart = [
@@ -80,7 +82,7 @@ export function changeDateClick(deliveryOption, productId) {
           }
       })
       saveToStorage();
-
+      renderPaymentSummary();
     }
   });
 }

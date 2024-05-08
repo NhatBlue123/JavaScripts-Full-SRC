@@ -4,6 +4,7 @@ import { formatCurrency } from "../utils/money.js";
 //import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions,getDeliveryOptions } from "../../data/deliveryOptions.js";
+import { renderPaymentSummary } from "./paymentSummary.js";
 //let countItem = 0;
 let cartSumaryHTML = "";
 
@@ -112,6 +113,8 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
     removeFromCart(data);
     const container = document.querySelector(`.js-cart-item-container-${data}`);
     container.remove();
+
+    renderPaymentSummary();
   });
 });
 

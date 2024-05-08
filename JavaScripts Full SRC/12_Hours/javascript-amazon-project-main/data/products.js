@@ -1,4 +1,3 @@
-let countItem = 0;
 export function getProducts(productId)
 {
   let matchingProduct;
@@ -6,10 +5,8 @@ export function getProducts(productId)
   products.forEach((product) => {
     if (product.id === productId) {
       matchingProduct = product;
-      countItem++;
     }
   });
-  document.querySelector(".js-count-item").innerHTML = `${countItem} items`;
   return matchingProduct;
 }
 
