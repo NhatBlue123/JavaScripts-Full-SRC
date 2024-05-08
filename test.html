@@ -6,36 +6,35 @@
     <title>Document</title>
     <style>
         body{
-            background-color: black;
-            position: relative;
-
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 10px;
         }
-       .div1{
-          width: 200px;
-          height: 200px;
-          color: white;
-          border: 4px solid white;
-          border-radius: 10px;
-          background-color: lightblue; 
-          text-align: center;
-          align-content: center;
-          position: absolute;
-          top: 100px;
-          left: 40%;
-          transform: rotate(46deg);
-       }
+        .js-update-product{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="div1">
-      Transform
-    </div>
+    <span class="js-update-product" id="1" data-id="1">
+        Update
+    </span>
+    <span class="js-update-product" id="2" data-id="2">
+        Update
+    </span>
+    <input type="text" checked="true">
     <script>
-        let c = 0;
-        setInterval(()=>{
-           document.querySelector(".div1").style.transform = `rotate(${c}deg)`;
-           c++;
-        },0.000001);
+        let check =false;
+       document.querySelectorAll('.js-update-product').forEach((e)=>{
+        e.addEventListener('click',() =>{
+            
+        })
+       })
+       function changeText(id)
+       {
+          document.getElementById(`${id}`).innerHTML = `<input class="inputUpdate"  type="text">`;
+       }
     </script>
 </body>
 </html>
