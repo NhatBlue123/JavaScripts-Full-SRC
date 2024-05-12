@@ -1,4 +1,4 @@
-import { formatCurrency } from "../scripts/utils/money.js";
+import { formatCurrency } from "../../scripts/utils/money.js";
  
 
 describe('test suite: formatCurrency',()=>{
@@ -7,7 +7,7 @@ describe('test suite: formatCurrency',()=>{
     });
 
     it('work with 0',()=>{
-        expect(formatCurrency(0)).toEqual('0.00zz');
+        expect(formatCurrency(0)).toEqual('0.00');
      });
 
      it('rounds up to the nearest cent',()=>{

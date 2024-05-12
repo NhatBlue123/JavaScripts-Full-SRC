@@ -1,9 +1,12 @@
-export let cart = JSON.parse(localStorage.getItem("cart"));
+export let cart;
 import { deliveryOptions } from "./deliveryOptions.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { renderPaymentSummary } from "../scripts/checkout/paymentSummary.js";
 
-
+loadFromStogare();
+export function loadFromStogare()
+{
+cart = JSON.parse(localStorage.getItem("cart"));
 if (!cart) {
   cart = [
     {
@@ -18,7 +21,7 @@ if (!cart) {
     },
   ];
 }
-
+}
 function saveToStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
