@@ -4,18 +4,19 @@ import { renderPaymentSummary } from "../scripts/checkout/paymentSummary.js";
 
 class Cart {
   cartItems;
-  localStorageKey;
+  //private property
+  #localStorageKey;
   
   constructor(localStorageKey)
   {
-    this.localStorageKey = localStorageKey;
+    this.#localStorageKey = localStorageKey;
     
-    this.loadFromStogare();
+    this.#loadFromStogare();
   }
 
   //method 1
-  loadFromStogare() {
-    this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+  #loadFromStogare() {
+    this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
     if (!this.cartItems) {
       this.cartItems = [
         {
@@ -33,7 +34,7 @@ class Cart {
   }
   //method 2
   saveToStorage() {
-    localStorage.setItem(localStorageKey, JSON.stringify(this.cartItems));
+    localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
   }
 
   //method 3
